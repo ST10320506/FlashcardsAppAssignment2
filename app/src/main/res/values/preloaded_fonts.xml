@@ -2,8 +2,13 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/abril_fatface</item>
+        <item>@font/acme</item>
         <item>@font/alexandria</item>
         <item>@font/alexandria_semibold</item>
+        <item>@font/alike_angular</item>
+        <item>@font/amaranth_bold_italic</item>
+        <item>@font/archivo_medium</item>
+        <item>@font/archivo_thin</item>
         <item>@font/konkhmer_sleokchher</item>
         <item>@font/margarine</item>
     </array>

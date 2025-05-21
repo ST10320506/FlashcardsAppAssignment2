@@ -11,9 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="1dp"
         android:background="#FDFDD6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,35 +22,33 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="453dp"
-            android:layout_height="281dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvWelcomeHeading"
-            app:srcCompat="@drawable/southafrica" />
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/newbackground"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
 
         <TextView
             android:id="@+id/tvAppDescription"
             android:layout_width="391dp"
             android:layout_height="147dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
             android:background="#F4C08E"
             android:fontFamily="sans-serif-medium"
-            android:text="This app helps users study using flashcards. Five history based questions that have an answer of either true or false. As the user answers the questions it will score the responses entered and give feedback based on their results at the end. This app helps make studying fun and less stressful."
+            android:text="This app helps users study using flashcards. Five history based questions that have an answer of either true or false. As the user answers the questions it will score the responses entered and give feedback based on their results at the end."
             android:textAlignment="textStart"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/BtnStart"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvHistoryCategory" />
 
         <TextView
             android:id="@+id/tvWelcomeHeading"
-            android:layout_width="372dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="388dp"
+            android:layout_height="97dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/alexandria_semibold"
             android:text="Welcome to the Flashcard App !"
             android:textAlignment="center"
@@ -62,32 +60,44 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageButton
+            android:id="@+id/imageButton9"
+            android:layout_width="514dp"
+            android:layout_height="281dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvWelcomeHeading"
+            app:srcCompat="@drawable/unity" />
+
         <TextView
             android:id="@+id/tvHistoryCategory"
             android:layout_width="319dp"
             android:layout_height="86dp"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/alexandria_semibold"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/archivo_medium"
             android:text="History category: Apartheid in South Africa"
             android:textAlignment="center"
             android:textColor="#CE0F0A"
             android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tvAppDescription"
+            android:textStyle="bold|italic"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton9" />
 
         <Button
             android:id="@+id/BtnStart"
             android:layout_width="114dp"
             android:layout_height="59dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="40dp"
             android:backgroundTint="#F8825E"
             android:text="Start"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAppDescription" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -74,7 +74,7 @@
             android:id="@+id/tvHistoryCategory"
             android:layout_width="319dp"
             android:layout_height="86dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="14dp"
             android:fontFamily="@font/archivo_medium"
             android:text="History category: Apartheid in South Africa"
             android:textAlignment="center"

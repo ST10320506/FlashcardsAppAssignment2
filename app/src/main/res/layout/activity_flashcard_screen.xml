@@ -74,7 +74,7 @@
             android:id="@+id/tvQuestion"
             android:layout_width="390dp"
             android:layout_height="122dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="14dp"
             android:fontFamily="@font/archivo_medium"
             android:text="Question"
             android:textAlignment="center"

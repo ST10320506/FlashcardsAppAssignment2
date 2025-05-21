@@ -19,16 +19,16 @@ class MainActivity : AppCompatActivity() {
             insets
         } //end of ViewCompat
 
-        //Declaring variables - enter username ?
+        //Declaring variables on the main activity user interface
         val btnStartQuiz = findViewById<Button>(R.id.BtnStart)
 
+        //Declaring the start quiz button function that when clicked it will navigate to the flashcard screen
         btnStartQuiz.setOnClickListener {
-            //reference: Liehans class activity - Userinterface activity
-            //Click Start button to navigate to the flashcard screen and start quiz
+            //Intent code is used to navigate from the main activity to the flashcard screen
+            //Reference: https://github.com/liehanels/UserInterface - Liehan Els, 2025. Liehan had written code to show how to navigate between two screens/activities. [online] Available at: <https://github.com/liehanels/UserInterface> [Accessed 21 May 2025].
             val intent = Intent(this, FlashcardScreenActivity::class.java)
             startActivity(intent)
             finish()
         }
-
     } // end of onCreate
 } //end of MainActivity

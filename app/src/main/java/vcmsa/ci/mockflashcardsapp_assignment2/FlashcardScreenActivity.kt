@@ -26,13 +26,15 @@ class FlashcardScreenActivity : AppCompatActivity() {
             insets
         } //end of ViewCompat
 
-        //Declaring variables on Flashcard activity screen GUI
+        //Declaring variables on the Flashcard activity screen GUI
         val tvQuestionTitle = findViewById<TextView>(R.id.tvQuestion)
         val radioGroupAnswers = findViewById<RadioGroup>(R.id.rdGrpAnswers)
         val btnNextQuestion = findViewById<Button>(R.id.BtnNextQuestion)
 
-        //Arrays for the flashcard questions and answers
-        //reference youtube video by Liehan Els - Coding up Quiz app
+        //Arrays created for the flashcard questions and answers
+        //Reference: https://github.com/liehanels/QuizzApp - Liehan Els, 2025. Liehan had written code to show how to create an array. [online] Available at: <https://github.com/liehanels/QuizzApp> [Accessed 21 May 2025].
+        //Reference: https://youtu.be/K13fR2RHTak - Liehan Els, 2025. Coding up the Quiz app with lots of debugging. [video online] Available at: <https://youtu.be/K13fR2RHTak> [Accessed 21 May 2025].
+
         //Array of Questions based on the history of South African Apartheid
         val historyQuestions = arrayOf(
             "1. Apartheid was a policy or system of segregation or discrimination on the grounds of race.", //- true
@@ -42,7 +44,7 @@ class FlashcardScreenActivity : AppCompatActivity() {
             "5. Pass laws required black South African to carry passbooks to enter white areas." // - true
         )
 
-        //Array of True and False options ***
+        //Array of True and False options users can choose from using radio buttons
         val historyAnswerChoices = arrayOf(
             arrayOf("True", "False"),
             arrayOf("True", "False"),
@@ -50,9 +52,11 @@ class FlashcardScreenActivity : AppCompatActivity() {
             arrayOf("True", "False"),
             arrayOf("True", "False")
         )
+
         // Array to store the users answers
         var userAnswers = arrayOfNulls<String>(5)
-        //Array of Answers to the apartheid questions
+
+        //Array of the correct answers to the apartheid questions
         val historyAnswers = arrayOf(
             "True",
             "False",
@@ -61,22 +65,28 @@ class FlashcardScreenActivity : AppCompatActivity() {
             "True"
         )
 
-        //clean up code from here
-        //counter to keep track of each question user got correct **
+        //counter variable to keep track of each question user got correct
         var counter = 0
+        //score variable to keep track of the score as user answers the questions
         var score = 0
+        //check variable to display 'correct/incorrect' to the user when true/false is chosen
         var check = 0
 
+        //Reference: https://youtu.be/K13fR2RHTak - Liehan Els, 2025. Coding up the Quiz app with lots of debugging. [video online] Available at: <https://youtu.be/K13fR2RHTak> [Accessed 21 May 2025].
+        //for loop to display question and true/false choices to the user
         tvQuestionTitle.text = historyQuestions[counter]
         for (i in 0 until radioGroupAnswers.childCount) {
             val radioButton = radioGroupAnswers.getChildAt(i) as RadioButton
             radioButton.text = historyAnswerChoices[counter][i]
         }
+
+        //Declaring the next question button function that when clicked it will go through and display each question
         btnNextQuestion.setOnClickListener {
             if (counter < 5) {
 
                 var selectedAnswer = radioGroupAnswers.checkedRadioButtonId
-
+               //Reference: https://youtu.be/K13fR2RHTak - Liehan Els, 2025. Coding up the Quiz app with lots of debugging. [video online] Available at: <https://youtu.be/K13fR2RHTak> [Accessed 21 May 2025].
+               //if...else statement to check if user has selected an answer
                 if (selectedAnswer != -1) {
                     val selectedRbtn = findViewById<RadioButton>(selectedAnswer)
                     userAnswers[counter] = selectedRbtn.text.toString()
@@ -87,6 +97,8 @@ class FlashcardScreenActivity : AppCompatActivity() {
                     return@setOnClickListener
                 }
 
+                //Reference: https://youtu.be/K13fR2RHTak - Liehan Els, 2025. Coding up the Quiz app with lots of debugging. [video online] Available at: <https://youtu.be/K13fR2RHTak> [Accessed 21 May 2025].
+                //if...else statement to check if the user has answered all questions
                 if (counter < 5) {
                     tvQuestionTitle.text = historyQuestions[counter]
                     for (i in 0 until radioGroupAnswers.childCount) {
@@ -97,21 +109,29 @@ class FlashcardScreenActivity : AppCompatActivity() {
                 } else {
                     for (i in 0 until 5) {
                         if (userAnswers[i] == historyAnswers[i]) {
+                            //score++ is used to check if the users answers match the history answers coded
                             score++
                         }
                     }
+                    //Log statement used to check the users score
                     Log.d("score", score.toString())
+                    //Intent code used to naviagte from Flashcard screen to score screen once all questions have been answered
+                    //Reference: https://youtu.be/K13fR2RHTak - Liehan Els, 2025. Coding up the Quiz app with lots of debugging. [video online] Available at: <https://youtu.be/K13fR2RHTak> [Accessed 21 May 2025].
                     val intent = Intent(this, ScoreScreenActivity::class.java)
                         .putExtra("score", score)
                     startActivity(intent)
                     finish()
                 }
 
-
+                //Reference: https://youtu.be/K13fR2RHTak - Liehan Els, 2025. Coding up the Quiz app with lots of debugging. [video online] Available at: <https://youtu.be/K13fR2RHTak> [Accessed 21 May 2025].
+                //if...else statement to check if user has selected the correct answer
                 if (userAnswers[check] == historyAnswers[check]) {
+                    //Toast message display correct if user chooses correct answer
                     Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show()
+                    //check++ is used to check if the users answers match the history answers coded
                     check++
                 } else {
+                    //Toast message display incorrect if user chooses incorrect answer
                     Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
                     check++
                 }
